@@ -153,6 +153,7 @@ Partial Class Form1
         '
         'Label6
         '
+        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = true
         Me.Label6.Location = New System.Drawing.Point(293, 201)
         Me.Label6.Name = "Label6"
