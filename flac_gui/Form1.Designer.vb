@@ -57,6 +57,8 @@ Partial Class Form1
         '
         'InputTxt
         '
+        Me.InputTxt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.InputTxt.Location = New System.Drawing.Point(15, 26)
         Me.InputTxt.Name = "InputTxt"
         Me.InputTxt.Size = New System.Drawing.Size(225, 20)
@@ -64,6 +66,8 @@ Partial Class Form1
         '
         'OutputTxt
         '
+        Me.OutputTxt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.OutputTxt.Location = New System.Drawing.Point(15, 68)
         Me.OutputTxt.Name = "OutputTxt"
         Me.OutputTxt.Size = New System.Drawing.Size(225, 20)
@@ -80,6 +84,7 @@ Partial Class Form1
         '
         'InputBrowseBtn
         '
+        Me.InputBrowseBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.InputBrowseBtn.Location = New System.Drawing.Point(246, 24)
         Me.InputBrowseBtn.Name = "InputBrowseBtn"
         Me.InputBrowseBtn.Size = New System.Drawing.Size(75, 23)
@@ -89,6 +94,7 @@ Partial Class Form1
         '
         'OutputBrowseBtn
         '
+        Me.OutputBrowseBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.OutputBrowseBtn.Location = New System.Drawing.Point(246, 68)
         Me.OutputBrowseBtn.Name = "OutputBrowseBtn"
         Me.OutputBrowseBtn.Size = New System.Drawing.Size(75, 23)
@@ -98,6 +104,8 @@ Partial Class Form1
         '
         'CompressionLevelChoose
         '
+        Me.CompressionLevelChoose.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.CompressionLevelChoose.FormattingEnabled = true
         Me.CompressionLevelChoose.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8"})
         Me.CompressionLevelChoose.Location = New System.Drawing.Point(15, 117)
@@ -107,6 +115,7 @@ Partial Class Form1
         '
         'StartBtn
         '
+        Me.StartBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.StartBtn.Location = New System.Drawing.Point(117, 101)
         Me.StartBtn.Name = "StartBtn"
         Me.StartBtn.Size = New System.Drawing.Size(204, 37)
@@ -125,6 +134,8 @@ Partial Class Form1
         '
         'ProgressBar1
         '
+        Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.ProgressBar1.Location = New System.Drawing.Point(15, 165)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(306, 23)
