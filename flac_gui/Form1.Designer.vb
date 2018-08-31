@@ -35,6 +35,10 @@ Partial Class Form1
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.PflagCheckbox = New System.Windows.Forms.CheckBox()
+        Me.EflagCheckbox = New System.Windows.Forms.CheckBox()
+        Me.GroupBox1.SuspendLayout
         Me.SuspendLayout
         '
         'Label1
@@ -61,7 +65,7 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.InputTxt.Location = New System.Drawing.Point(15, 26)
         Me.InputTxt.Name = "InputTxt"
-        Me.InputTxt.Size = New System.Drawing.Size(225, 20)
+        Me.InputTxt.Size = New System.Drawing.Size(572, 20)
         Me.InputTxt.TabIndex = 2
         '
         'OutputTxt
@@ -70,7 +74,7 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.OutputTxt.Location = New System.Drawing.Point(15, 68)
         Me.OutputTxt.Name = "OutputTxt"
-        Me.OutputTxt.Size = New System.Drawing.Size(225, 20)
+        Me.OutputTxt.Size = New System.Drawing.Size(572, 20)
         Me.OutputTxt.TabIndex = 3
         '
         'Label3
@@ -85,7 +89,7 @@ Partial Class Form1
         'InputBrowseBtn
         '
         Me.InputBrowseBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.InputBrowseBtn.Location = New System.Drawing.Point(246, 24)
+        Me.InputBrowseBtn.Location = New System.Drawing.Point(593, 24)
         Me.InputBrowseBtn.Name = "InputBrowseBtn"
         Me.InputBrowseBtn.Size = New System.Drawing.Size(75, 23)
         Me.InputBrowseBtn.TabIndex = 5
@@ -95,7 +99,7 @@ Partial Class Form1
         'OutputBrowseBtn
         '
         Me.OutputBrowseBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.OutputBrowseBtn.Location = New System.Drawing.Point(246, 68)
+        Me.OutputBrowseBtn.Location = New System.Drawing.Point(593, 68)
         Me.OutputBrowseBtn.Name = "OutputBrowseBtn"
         Me.OutputBrowseBtn.Size = New System.Drawing.Size(75, 23)
         Me.OutputBrowseBtn.TabIndex = 6
@@ -110,15 +114,15 @@ Partial Class Form1
         Me.CompressionLevelChoose.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8"})
         Me.CompressionLevelChoose.Location = New System.Drawing.Point(15, 117)
         Me.CompressionLevelChoose.Name = "CompressionLevelChoose"
-        Me.CompressionLevelChoose.Size = New System.Drawing.Size(96, 21)
+        Me.CompressionLevelChoose.Size = New System.Drawing.Size(443, 21)
         Me.CompressionLevelChoose.TabIndex = 7
         '
         'StartBtn
         '
         Me.StartBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.StartBtn.Location = New System.Drawing.Point(117, 101)
+        Me.StartBtn.Location = New System.Drawing.Point(464, 143)
         Me.StartBtn.Name = "StartBtn"
-        Me.StartBtn.Size = New System.Drawing.Size(204, 37)
+        Me.StartBtn.Size = New System.Drawing.Size(204, 41)
         Me.StartBtn.TabIndex = 8
         Me.StartBtn.Text = "Start"
         Me.StartBtn.UseVisualStyleBackColor = true
@@ -126,7 +130,7 @@ Partial Class Form1
         'Label4
         '
         Me.Label4.AutoSize = true
-        Me.Label4.Location = New System.Drawing.Point(12, 148)
+        Me.Label4.Location = New System.Drawing.Point(12, 187)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(51, 13)
         Me.Label4.TabIndex = 9
@@ -136,16 +140,16 @@ Partial Class Form1
         '
         Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(15, 165)
+        Me.ProgressBar1.Location = New System.Drawing.Point(15, 204)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(306, 23)
+        Me.ProgressBar1.Size = New System.Drawing.Size(653, 23)
         Me.ProgressBar1.Step = 1
         Me.ProgressBar1.TabIndex = 10
         '
         'Label5
         '
         Me.Label5.AutoSize = true
-        Me.Label5.Location = New System.Drawing.Point(12, 201)
+        Me.Label5.Location = New System.Drawing.Point(12, 230)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(119, 13)
         Me.Label5.TabIndex = 11
@@ -155,17 +159,51 @@ Partial Class Form1
         '
         Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = true
-        Me.Label6.Location = New System.Drawing.Point(293, 201)
+        Me.Label6.Location = New System.Drawing.Point(640, 230)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(28, 13)
         Me.Label6.TabIndex = 12
         Me.Label6.Text = "v1.0"
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.PflagCheckbox)
+        Me.GroupBox1.Controls.Add(Me.EflagCheckbox)
+        Me.GroupBox1.Location = New System.Drawing.Point(15, 143)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(443, 41)
+        Me.GroupBox1.TabIndex = 13
+        Me.GroupBox1.TabStop = false
+        Me.GroupBox1.Text = "Additional Flags"
+        '
+        'PflagCheckbox
+        '
+        Me.PflagCheckbox.AutoSize = true
+        Me.PflagCheckbox.Location = New System.Drawing.Point(216, 17)
+        Me.PflagCheckbox.Name = "PflagCheckbox"
+        Me.PflagCheckbox.Size = New System.Drawing.Size(223, 17)
+        Me.PflagCheckbox.TabIndex = 1
+        Me.PflagCheckbox.Text = "Exhaustively search LP coeff quantization"
+        Me.PflagCheckbox.UseVisualStyleBackColor = true
+        '
+        'EflagCheckbox
+        '
+        Me.EflagCheckbox.AutoSize = true
+        Me.EflagCheckbox.Location = New System.Drawing.Point(6, 17)
+        Me.EflagCheckbox.Name = "EflagCheckbox"
+        Me.EflagCheckbox.Size = New System.Drawing.Size(204, 17)
+        Me.EflagCheckbox.TabIndex = 0
+        Me.EflagCheckbox.Text = "Exhaustive model search (expensive!)"
+        Me.EflagCheckbox.UseVisualStyleBackColor = true
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(333, 224)
+        Me.ClientSize = New System.Drawing.Size(680, 251)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.ProgressBar1)
@@ -182,6 +220,8 @@ Partial Class Form1
         Me.MaximizeBox = false
         Me.Name = "Form1"
         Me.Text = "FLAC GUI"
+        Me.GroupBox1.ResumeLayout(false)
+        Me.GroupBox1.PerformLayout
         Me.ResumeLayout(false)
         Me.PerformLayout
 
@@ -200,4 +240,7 @@ End Sub
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents PflagCheckbox As CheckBox
+    Friend WithEvents EflagCheckbox As CheckBox
 End Class
