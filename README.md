@@ -1,10 +1,10 @@
 # flac_gui
 A GUI to process music files into FLAC
 
-I wrote this software to compress my music collection to the maximum by using the FLAC `-8` level.
+I wrote this software to compress my music collection to the maximum by using the FLAC `-8` level. It also includes the -e (Exhaustive model search) and -p (Exhaustively search LP coeff quantization) flags to further compress the files.
 
 The software looks like this:  
-<iframe src="https://drive.google.com/file/d/1ud32Hcxn1vWYwCW-hsJEzE-4J8S8acPK/preview" width="640" height="480"></iframe>
+![v1.1 screenshot](https://moisescardona.me/files/flac_gui_v1.1.PNG)
 
 You need to copy `flac.exe` to the location where you have this software.
 
