@@ -80,7 +80,6 @@ Public Class Form1
         flacProcess = Process.Start(flacProcessInfo)
         flacProcess.WaitForExit()
         ProgressBar1.BeginInvoke(Sub() ProgressBar1.PerformStep())
-        Me.BeginInvoke(Sub() Me.Update())
         Return True
     End Function
 
