@@ -1,4 +1,6 @@
-﻿Public Class Form1
+﻿Imports System.Threading
+
+Public Class Form1
 
     Private Sub InputBrowseBtn_Click(sender As Object, e As EventArgs) Handles InputBrowseBtn.Click
         Dim InputBrowser As New FolderBrowserDialog With {
@@ -21,27 +23,66 @@
     End Sub
 
     Private Sub StartBtn_Click(sender As Object, e As EventArgs) Handles StartBtn.Click
+        StartBtn.Enabled = False
+        InputTxt.Enabled = False
+        OutputTxt.Enabled = False
+        InputBrowseBtn.Enabled = False
+        OutputBrowseBtn.Enabled = False
+        CompressionLevelChoose.Enabled = False
+        EflagCheckbox.Enabled = False
+        PflagCheckbox.Enabled = False
+        Dim StartTasks As New Thread(Sub() StartThreads())
+        StartTasks.Start()
+    End Sub
+    Private Sub StartThreads()
         If Not My.Computer.FileSystem.DirectoryExists(OutputTxt.Text) Then My.Computer.FileSystem.CreateDirectory(OutputTxt.Text)
-        ProgressBar1.Maximum = My.Computer.FileSystem.GetFiles(InputTxt.Text).Count
-        ProgressBar1.Value = 0
+        Dim ItemsToProcess As List(Of String) = New List(Of String)
         For Each File In IO.Directory.GetFiles(InputTxt.Text)
-            Run_flac(File, OutputTxt.Text + "\" + My.Computer.FileSystem.GetName(File), CompressionLevelChoose.SelectedItem)
-            ProgressBar1.PerformStep()
-            Me.Update()
+            If IO.Path.GetExtension(File) = ".wav" Or IO.Path.GetExtension(File) = ".flac" Then
+                ItemsToProcess.Add(File)
+            Else
+                If Not My.Computer.FileSystem.FileExists(OutputTxt.Text + "\" + My.Computer.FileSystem.GetName(File)) Then
+                    My.Computer.FileSystem.CopyFile(File, OutputTxt.Text + "\" + My.Computer.FileSystem.GetName(File))
+                End If
+            End If
         Next
+        ProgressBar1.BeginInvoke(Sub()
+                                     ProgressBar1.Maximum = ItemsToProcess.Count
+                                     ProgressBar1.Value = 0
+                                 End Sub
+        )
+        Dim tasks = New Task(ItemsToProcess.Count - 1) {}
+        For Counter As Integer = 0 To ItemsToProcess.Count - 1
+            Dim args As Array = {ItemsToProcess(Counter), OutputTxt.Text + "\" + My.Computer.FileSystem.GetName(ItemsToProcess(Counter)), My.Settings.CompressionLevel}
+            tasks(Counter) = Task.Factory.StartNew(Function() Run_flac(args))
+        Next
+        Task.WaitAll(tasks)
+        StartBtn.BeginInvoke(Sub()
+                                 StartBtn.Enabled = True
+                                 CompressionLevelChoose.Enabled = True
+                                 InputTxt.Enabled = True
+                                 OutputTxt.Enabled = True
+                                 InputBrowseBtn.Enabled = True
+                                 OutputBrowseBtn.Enabled = True
+                                 EflagCheckbox.Enabled = True
+                                 PflagCheckbox.Enabled = True
+                             End Sub)
         MsgBox("Finished")
     End Sub
-    Private Sub Run_flac(Input_File As String, Output_File As String, CompressionLevel As String)
+    Private Function Run_flac(ByVal args As Array) As Boolean
         Dim flacProcessInfo As New ProcessStartInfo
         Dim flacProcess As Process
         flacProcessInfo.FileName = "flac.exe"
-        flacProcessInfo.Arguments = "-" & CompressionLevel & " " & My.Settings.Eflag & " " & My.Settings.Pflag & " -V """ + Input_File + """ -o """ + Output_File + """"
+        flacProcessInfo.Arguments = "-" & args(2) & " " & My.Settings.Eflag & " " & My.Settings.Pflag & " -V """ + args(0) + """ -o """ + args(1) + """"
         flacProcessInfo.CreateNoWindow = True
         flacProcessInfo.RedirectStandardOutput = True
         flacProcessInfo.UseShellExecute = False
         flacProcess = Process.Start(flacProcessInfo)
         flacProcess.WaitForExit()
-    End Sub
+        ProgressBar1.BeginInvoke(Sub() ProgressBar1.PerformStep())
+        Me.BeginInvoke(Sub() Me.Update())
+        Return True
+    End Function
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CompressionLevelChoose.SelectedIndex = My.Settings.CompressionLevel
