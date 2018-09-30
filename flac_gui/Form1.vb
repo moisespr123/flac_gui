@@ -1,7 +1,7 @@
 ﻿Imports System.Threading
 
 Public Class Form1
-    Private bypassCommands As Boolean = False
+    Private BypassGUISettings As Boolean = False
     Private Commands As String = ""
     Private Sub InputBrowseBtn_Click(sender As Object, e As EventArgs) Handles InputBrowseBtn.Click
         Dim InputBrowser As New FolderBrowserDialog With {
@@ -29,7 +29,7 @@ Public Class Form1
         OutputTxt.Enabled = False
         InputBrowseBtn.Enabled = False
         OutputBrowseBtn.Enabled = False
-        If Not bypassCommands Then
+        If Not BypassGUISettings Then
             CompressionLevelChoose.Enabled = False
             EflagCheckbox.Enabled = False
             PflagCheckbox.Enabled = False
@@ -66,7 +66,7 @@ Public Class Form1
                                  OutputTxt.Enabled = True
                                  InputBrowseBtn.Enabled = True
                                  OutputBrowseBtn.Enabled = True
-                                 If Not bypassCommands Then
+                                 If Not BypassGUISettings Then
                                      CompressionLevelChoose.Enabled = True
                                      EflagCheckbox.Enabled = True
                                      PflagCheckbox.Enabled = True
@@ -78,7 +78,7 @@ Public Class Form1
         Dim flacProcessInfo As New ProcessStartInfo
         Dim flacProcess As Process
         flacProcessInfo.FileName = "flac.exe"
-        If bypassCommands = True Then
+        If BypassGUISettings Then
             flacProcessInfo.Arguments = Commands & " -V """ + args(0) + """ -o """ + args(1) + """"
         Else
             flacProcessInfo.Arguments = "-" & args(2) & " " & My.Settings.Eflag & " " & My.Settings.Pflag & " -V """ + args(0) + """ -o """ + args(1) + """"
@@ -98,12 +98,13 @@ Public Class Form1
             If Not My.Settings.Eflag = String.Empty Then EflagCheckbox.Checked = True
             If Not My.Settings.Pflag = String.Empty Then PflagCheckbox.Checked = True
             If My.Computer.FileSystem.FileExists("commands.txt") Then
-                bypassCommands = True
+                BypassGUISettings = True
                 Commands = My.Computer.FileSystem.ReadAllText("commands.txt")
                 commandsFound.Visible = True
                 CompressionLevelChoose.Enabled = False
                 EflagCheckbox.Enabled = False
                 PflagCheckbox.Enabled = False
+                IgnoreCommandsFile.Visible = True
             End If
         Else
             MessageBox.Show("flac.exe not found. Exiting...")
@@ -132,5 +133,21 @@ Public Class Form1
             My.Settings.Pflag = String.Empty
         End If
         My.Settings.Save()
+    End Sub
+
+    Private Sub IgnoreCommandsFile_CheckedChanged(sender As Object, e As EventArgs) Handles IgnoreCommandsFile.CheckedChanged
+        If IgnoreCommandsFile.Checked Then
+            BypassGUISettings = False
+            commandsFound.Visible = False
+            CompressionLevelChoose.Enabled = True
+            EflagCheckbox.Enabled = True
+            PflagCheckbox.Enabled = True
+        Else
+            BypassGUISettings = True
+            commandsFound.Visible = True
+            CompressionLevelChoose.Enabled = False
+            EflagCheckbox.Enabled = False
+            PflagCheckbox.Enabled = False
+        End If
     End Sub
 End Class

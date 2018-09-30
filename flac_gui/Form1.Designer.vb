@@ -39,6 +39,7 @@ Partial Class Form1
         Me.PflagCheckbox = New System.Windows.Forms.CheckBox()
         Me.EflagCheckbox = New System.Windows.Forms.CheckBox()
         Me.commandsFound = New System.Windows.Forms.Label()
+        Me.IgnoreCommandsFile = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout
         Me.SuspendLayout
         '
@@ -202,18 +203,30 @@ Partial Class Form1
         'commandsFound
         '
         Me.commandsFound.AutoSize = true
-        Me.commandsFound.Location = New System.Drawing.Point(464, 120)
+        Me.commandsFound.Location = New System.Drawing.Point(461, 101)
         Me.commandsFound.Name = "commandsFound"
         Me.commandsFound.Size = New System.Drawing.Size(177, 13)
         Me.commandsFound.TabIndex = 14
         Me.commandsFound.Text = "Using arguments from commands.txt"
         Me.commandsFound.Visible = false
         '
+        'IgnoreCommandsFile
+        '
+        Me.IgnoreCommandsFile.AutoSize = true
+        Me.IgnoreCommandsFile.Location = New System.Drawing.Point(464, 120)
+        Me.IgnoreCommandsFile.Name = "IgnoreCommandsFile"
+        Me.IgnoreCommandsFile.Size = New System.Drawing.Size(124, 17)
+        Me.IgnoreCommandsFile.TabIndex = 15
+        Me.IgnoreCommandsFile.Text = "Ignore commands.txt"
+        Me.IgnoreCommandsFile.UseVisualStyleBackColor = true
+        Me.IgnoreCommandsFile.Visible = false
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(680, 251)
+        Me.Controls.Add(Me.IgnoreCommandsFile)
         Me.Controls.Add(Me.commandsFound)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label6)
@@ -256,4 +269,5 @@ End Sub
     Friend WithEvents PflagCheckbox As CheckBox
     Friend WithEvents EflagCheckbox As CheckBox
     Friend WithEvents commandsFound As Label
+    Friend WithEvents IgnoreCommandsFile As CheckBox
 End Class
