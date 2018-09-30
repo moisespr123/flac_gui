@@ -1,7 +1,8 @@
 ﻿Imports System.Threading
 
 Public Class Form1
-
+    Private bypassCommands As Boolean = False
+    Private Commands As String = ""
     Private Sub InputBrowseBtn_Click(sender As Object, e As EventArgs) Handles InputBrowseBtn.Click
         Dim InputBrowser As New FolderBrowserDialog With {
             .ShowNewFolderButton = False
@@ -28,9 +29,11 @@ Public Class Form1
         OutputTxt.Enabled = False
         InputBrowseBtn.Enabled = False
         OutputBrowseBtn.Enabled = False
-        CompressionLevelChoose.Enabled = False
-        EflagCheckbox.Enabled = False
-        PflagCheckbox.Enabled = False
+        If Not bypassCommands Then
+            CompressionLevelChoose.Enabled = False
+            EflagCheckbox.Enabled = False
+            PflagCheckbox.Enabled = False
+        End If
         Dim StartTasks As New Thread(Sub() StartThreads())
         StartTasks.Start()
     End Sub
@@ -59,13 +62,15 @@ Public Class Form1
         Task.WaitAll(tasks)
         StartBtn.BeginInvoke(Sub()
                                  StartBtn.Enabled = True
-                                 CompressionLevelChoose.Enabled = True
                                  InputTxt.Enabled = True
                                  OutputTxt.Enabled = True
                                  InputBrowseBtn.Enabled = True
                                  OutputBrowseBtn.Enabled = True
-                                 EflagCheckbox.Enabled = True
-                                 PflagCheckbox.Enabled = True
+                                 If Not bypassCommands Then
+                                     CompressionLevelChoose.Enabled = True
+                                     EflagCheckbox.Enabled = True
+                                     PflagCheckbox.Enabled = True
+                                 End If
                              End Sub)
         MsgBox("Finished")
     End Sub
@@ -73,7 +78,11 @@ Public Class Form1
         Dim flacProcessInfo As New ProcessStartInfo
         Dim flacProcess As Process
         flacProcessInfo.FileName = "flac.exe"
-        flacProcessInfo.Arguments = "-" & args(2) & " " & My.Settings.Eflag & " " & My.Settings.Pflag & " -V """ + args(0) + """ -o """ + args(1) + """"
+        If bypassCommands = True Then
+            flacProcessInfo.Arguments = Commands & " -V """ + args(0) + """ -o """ + args(1) + """"
+        Else
+            flacProcessInfo.Arguments = "-" & args(2) & " " & My.Settings.Eflag & " " & My.Settings.Pflag & " -V """ + args(0) + """ -o """ + args(1) + """"
+        End If
         flacProcessInfo.CreateNoWindow = True
         flacProcessInfo.RedirectStandardOutput = True
         flacProcessInfo.UseShellExecute = False
@@ -84,9 +93,22 @@ Public Class Form1
     End Function
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CompressionLevelChoose.SelectedIndex = My.Settings.CompressionLevel
-        If Not My.Settings.Eflag = String.Empty Then EflagCheckbox.Checked = True
-        If Not My.Settings.Pflag = String.Empty Then PflagCheckbox.Checked = True
+        If My.Computer.FileSystem.FileExists("flac.exe") Then
+            CompressionLevelChoose.SelectedIndex = My.Settings.CompressionLevel
+            If Not My.Settings.Eflag = String.Empty Then EflagCheckbox.Checked = True
+            If Not My.Settings.Pflag = String.Empty Then PflagCheckbox.Checked = True
+            If My.Computer.FileSystem.FileExists("commands.txt") Then
+                bypassCommands = True
+                Commands = My.Computer.FileSystem.ReadAllText("commands.txt")
+                commandsFound.Visible = True
+                CompressionLevelChoose.Enabled = False
+                EflagCheckbox.Enabled = False
+                PflagCheckbox.Enabled = False
+            End If
+        Else
+            MessageBox.Show("flac.exe not found. Exiting...")
+            Close()
+        End If
     End Sub
 
     Private Sub CompressionLevelChoose_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CompressionLevelChoose.SelectedIndexChanged

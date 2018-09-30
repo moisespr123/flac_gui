@@ -38,6 +38,7 @@ Partial Class Form1
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.PflagCheckbox = New System.Windows.Forms.CheckBox()
         Me.EflagCheckbox = New System.Windows.Forms.CheckBox()
+        Me.commandsFound = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout
         Me.SuspendLayout
         '
@@ -163,7 +164,7 @@ Partial Class Form1
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(28, 13)
         Me.Label6.TabIndex = 12
-        Me.Label6.Text = "v1.2"
+        Me.Label6.Text = "v1.3"
         '
         'GroupBox1
         '
@@ -198,11 +199,22 @@ Partial Class Form1
         Me.EflagCheckbox.Text = "Exhaustive model search (expensive!)"
         Me.EflagCheckbox.UseVisualStyleBackColor = true
         '
+        'commandsFound
+        '
+        Me.commandsFound.AutoSize = true
+        Me.commandsFound.Location = New System.Drawing.Point(464, 120)
+        Me.commandsFound.Name = "commandsFound"
+        Me.commandsFound.Size = New System.Drawing.Size(177, 13)
+        Me.commandsFound.TabIndex = 14
+        Me.commandsFound.Text = "Using arguments from commands.txt"
+        Me.commandsFound.Visible = false
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(680, 251)
+        Me.Controls.Add(Me.commandsFound)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
@@ -243,4 +255,5 @@ End Sub
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents PflagCheckbox As CheckBox
     Friend WithEvents EflagCheckbox As CheckBox
+    Friend WithEvents commandsFound As Label
 End Class
