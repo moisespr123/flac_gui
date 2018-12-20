@@ -29,6 +29,7 @@ Public Class Form1
         OutputTxt.Enabled = False
         InputBrowseBtn.Enabled = False
         OutputBrowseBtn.Enabled = False
+        If IgnoreCommandsFile.Visible Then IgnoreCommandsFile.Enabled = False
         If Not BypassGUISettings Then
             CompressionLevelChoose.Enabled = False
             EflagCheckbox.Enabled = False
@@ -66,6 +67,7 @@ Public Class Form1
                                  OutputTxt.Enabled = True
                                  InputBrowseBtn.Enabled = True
                                  OutputBrowseBtn.Enabled = True
+                                 If IgnoreCommandsFile.Visible Then IgnoreCommandsFile.Enabled = True
                                  If Not BypassGUISettings Then
                                      CompressionLevelChoose.Enabled = True
                                      EflagCheckbox.Enabled = True
