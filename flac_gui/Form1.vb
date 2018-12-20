@@ -55,12 +55,12 @@ Public Class Form1
                                      ProgressBar1.Value = 0
                                  End Sub
         )
-        Dim tasks = New Task(ItemsToProcess.Count - 1) {}
+        Dim tasks = New List(Of Action)
         For Counter As Integer = 0 To ItemsToProcess.Count - 1
             Dim args As Array = {ItemsToProcess(Counter), OutputTxt.Text + "\" + My.Computer.FileSystem.GetName(ItemsToProcess(Counter)), My.Settings.CompressionLevel}
-            tasks(Counter) = Task.Factory.StartNew(Function() Run_flac(args))
+            tasks.Add(Function() Run_flac(args))
         Next
-        Task.WaitAll(tasks)
+        Parallel.Invoke(New ParallelOptions With {.MaxDegreeOfParallelism = Environment.ProcessorCount}, tasks.ToArray())
         StartBtn.BeginInvoke(Sub()
                                  StartBtn.Enabled = True
                                  InputTxt.Enabled = True
