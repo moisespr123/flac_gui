@@ -67,21 +67,21 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.InputTxt.Location = New System.Drawing.Point(15, 26)
         Me.InputTxt.Name = "InputTxt"
-        Me.InputTxt.Size = New System.Drawing.Size(572, 20)
+        Me.InputTxt.Size = New System.Drawing.Size(381, 20)
         Me.InputTxt.TabIndex = 2
         '
         'OutputTxt
         '
-        Me.OutputTxt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
-            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.OutputTxt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.OutputTxt.Location = New System.Drawing.Point(15, 68)
         Me.OutputTxt.Name = "OutputTxt"
-        Me.OutputTxt.Size = New System.Drawing.Size(572, 20)
+        Me.OutputTxt.Size = New System.Drawing.Size(381, 20)
         Me.OutputTxt.TabIndex = 3
         '
         'Label3
         '
-        Me.Label3.AutoSize = true
+        Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(12, 101)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(99, 13)
@@ -90,49 +90,49 @@ Partial Class Form1
         '
         'InputBrowseBtn
         '
-        Me.InputBrowseBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.InputBrowseBtn.Location = New System.Drawing.Point(593, 24)
+        Me.InputBrowseBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.InputBrowseBtn.Location = New System.Drawing.Point(402, 24)
         Me.InputBrowseBtn.Name = "InputBrowseBtn"
         Me.InputBrowseBtn.Size = New System.Drawing.Size(75, 23)
         Me.InputBrowseBtn.TabIndex = 5
         Me.InputBrowseBtn.Text = "Browse"
-        Me.InputBrowseBtn.UseVisualStyleBackColor = true
+        Me.InputBrowseBtn.UseVisualStyleBackColor = True
         '
         'OutputBrowseBtn
         '
-        Me.OutputBrowseBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.OutputBrowseBtn.Location = New System.Drawing.Point(593, 68)
+        Me.OutputBrowseBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.OutputBrowseBtn.Location = New System.Drawing.Point(402, 68)
         Me.OutputBrowseBtn.Name = "OutputBrowseBtn"
         Me.OutputBrowseBtn.Size = New System.Drawing.Size(75, 23)
         Me.OutputBrowseBtn.TabIndex = 6
         Me.OutputBrowseBtn.Text = "Browse"
-        Me.OutputBrowseBtn.UseVisualStyleBackColor = true
+        Me.OutputBrowseBtn.UseVisualStyleBackColor = True
         '
         'CompressionLevelChoose
         '
-        Me.CompressionLevelChoose.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
-            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.CompressionLevelChoose.FormattingEnabled = true
+        Me.CompressionLevelChoose.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CompressionLevelChoose.FormattingEnabled = True
         Me.CompressionLevelChoose.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8"})
         Me.CompressionLevelChoose.Location = New System.Drawing.Point(15, 117)
         Me.CompressionLevelChoose.Name = "CompressionLevelChoose"
-        Me.CompressionLevelChoose.Size = New System.Drawing.Size(443, 21)
+        Me.CompressionLevelChoose.Size = New System.Drawing.Size(252, 21)
         Me.CompressionLevelChoose.TabIndex = 7
         '
         'StartBtn
         '
-        Me.StartBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.StartBtn.Location = New System.Drawing.Point(464, 143)
+        Me.StartBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.StartBtn.Location = New System.Drawing.Point(273, 143)
         Me.StartBtn.Name = "StartBtn"
         Me.StartBtn.Size = New System.Drawing.Size(204, 41)
         Me.StartBtn.TabIndex = 8
         Me.StartBtn.Text = "Start"
-        Me.StartBtn.UseVisualStyleBackColor = true
+        Me.StartBtn.UseVisualStyleBackColor = True
         '
         'Label4
         '
-        Me.Label4.AutoSize = true
-        Me.Label4.Location = New System.Drawing.Point(12, 187)
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(12, 215)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(51, 13)
         Me.Label4.TabIndex = 9
@@ -140,18 +140,18 @@ Partial Class Form1
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
-            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(15, 204)
+        Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ProgressBar1.Location = New System.Drawing.Point(15, 232)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(653, 23)
+        Me.ProgressBar1.Size = New System.Drawing.Size(462, 23)
         Me.ProgressBar1.Step = 1
         Me.ProgressBar1.TabIndex = 10
         '
         'Label5
         '
-        Me.Label5.AutoSize = true
-        Me.Label5.Location = New System.Drawing.Point(12, 230)
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(12, 258)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(119, 13)
         Me.Label5.TabIndex = 11
@@ -159,9 +159,9 @@ Partial Class Form1
         '
         'Label6
         '
-        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.Label6.AutoSize = true
-        Me.Label6.Location = New System.Drawing.Point(640, 230)
+        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(449, 258)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(28, 13)
         Me.Label6.TabIndex = 12
@@ -169,63 +169,65 @@ Partial Class Form1
         '
         'GroupBox1
         '
-        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
-            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.PflagCheckbox)
         Me.GroupBox1.Controls.Add(Me.EflagCheckbox)
         Me.GroupBox1.Location = New System.Drawing.Point(15, 143)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(443, 41)
+        Me.GroupBox1.Size = New System.Drawing.Size(252, 69)
         Me.GroupBox1.TabIndex = 13
-        Me.GroupBox1.TabStop = false
+        Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Additional Flags"
         '
         'PflagCheckbox
         '
-        Me.PflagCheckbox.AutoSize = true
-        Me.PflagCheckbox.Location = New System.Drawing.Point(216, 17)
+        Me.PflagCheckbox.AutoSize = True
+        Me.PflagCheckbox.Location = New System.Drawing.Point(6, 40)
         Me.PflagCheckbox.Name = "PflagCheckbox"
         Me.PflagCheckbox.Size = New System.Drawing.Size(223, 17)
         Me.PflagCheckbox.TabIndex = 1
         Me.PflagCheckbox.Text = "Exhaustively search LP coeff quantization"
-        Me.PflagCheckbox.UseVisualStyleBackColor = true
+        Me.PflagCheckbox.UseVisualStyleBackColor = True
         '
         'EflagCheckbox
         '
-        Me.EflagCheckbox.AutoSize = true
+        Me.EflagCheckbox.AutoSize = True
         Me.EflagCheckbox.Location = New System.Drawing.Point(6, 17)
         Me.EflagCheckbox.Name = "EflagCheckbox"
         Me.EflagCheckbox.Size = New System.Drawing.Size(204, 17)
         Me.EflagCheckbox.TabIndex = 0
         Me.EflagCheckbox.Text = "Exhaustive model search (expensive!)"
-        Me.EflagCheckbox.UseVisualStyleBackColor = true
+        Me.EflagCheckbox.UseVisualStyleBackColor = True
         '
         'commandsFound
         '
-        Me.commandsFound.AutoSize = true
-        Me.commandsFound.Location = New System.Drawing.Point(461, 101)
+        Me.commandsFound.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.commandsFound.AutoSize = True
+        Me.commandsFound.Location = New System.Drawing.Point(289, 98)
         Me.commandsFound.Name = "commandsFound"
         Me.commandsFound.Size = New System.Drawing.Size(177, 13)
         Me.commandsFound.TabIndex = 14
         Me.commandsFound.Text = "Using arguments from commands.txt"
-        Me.commandsFound.Visible = false
+        Me.commandsFound.Visible = False
         '
         'IgnoreCommandsFile
         '
-        Me.IgnoreCommandsFile.AutoSize = true
-        Me.IgnoreCommandsFile.Location = New System.Drawing.Point(464, 120)
+        Me.IgnoreCommandsFile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.IgnoreCommandsFile.AutoSize = True
+        Me.IgnoreCommandsFile.Location = New System.Drawing.Point(292, 117)
         Me.IgnoreCommandsFile.Name = "IgnoreCommandsFile"
         Me.IgnoreCommandsFile.Size = New System.Drawing.Size(124, 17)
         Me.IgnoreCommandsFile.TabIndex = 15
         Me.IgnoreCommandsFile.Text = "Ignore commands.txt"
-        Me.IgnoreCommandsFile.UseVisualStyleBackColor = true
-        Me.IgnoreCommandsFile.Visible = false
+        Me.IgnoreCommandsFile.UseVisualStyleBackColor = True
+        Me.IgnoreCommandsFile.Visible = False
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(680, 251)
+        Me.ClientSize = New System.Drawing.Size(489, 282)
         Me.Controls.Add(Me.IgnoreCommandsFile)
         Me.Controls.Add(Me.commandsFound)
         Me.Controls.Add(Me.GroupBox1)
